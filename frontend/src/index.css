@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap');
+
+* {
+    font-family: "Quicksand", sans-serif;
+}
+
+.theme-font {
+    font-family: "Playfair Display", serif;
+}
+
+:root {
+    --primary-color: #ffffeb;
+    --secondary-color: #e4e4d0;
+    --black1: #111;
+    --black2: #222;
+    --black3: #333;
+    --skillora: #f0d7ff;
+}
+
+@theme inline {
+    --color-primary: var(--primary-color);
+    --color-secondary: var(--secondary-color);
+    --color-black1: var(--black1);
+    --color-black2: var(--black2);
+    --color-black3: var(--black3);
+    --color-skillora: var(--skillora);
+}
