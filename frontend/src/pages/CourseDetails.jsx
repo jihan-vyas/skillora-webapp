@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, redirect, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { SignedIn, useUser } from "@clerk/clerk-react";
 import axios from "axios";
@@ -14,7 +14,7 @@ const CourseDetails = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/courses");
+        const res = await fetch("https://skillora-backend-ipwx.onrender.com/api/courses");
         const data = await res.json();
         const selectedCourse = data.find((c) => c._id === id);
         setCourse(selectedCourse || null);
@@ -34,7 +34,7 @@ const CourseDetails = () => {
   const handleAddComment = async () => {
     if (!commentText.trim()) return;
     await axios.post(
-      `http://localhost:5000/api/courses/${course._id}/comment`,
+      `https://skillora-backend-ipwx.onrender.com/api/courses/${course._id}/comment`,
       {
         text: commentText,
         user: {
@@ -61,9 +61,9 @@ const CourseDetails = () => {
   };
 
   const handleLike = async () => {
-    if (!isSignedIn) return;
+    if (!isSignedIn) redirect('signup');
     const res = await axios.post(
-      `http://localhost:5000/api/courses/${course._id}/like`,
+      `https://skillora-backend-ipwx.onrender.com/api/courses/${course._id}/like`,
       { userId: user.id }
     );
     setCourse(res.data);

@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import CourseCard from "../Components/CourseCard";
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
-
 const UserDashboard = () => {
   const { user, isLoaded } = useUser();
   const [activeTab, setActiveTab] = useState("courses");
@@ -84,7 +82,7 @@ const MyCourses = ({ userId }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/courses/user/${userId}`)
+    fetch(`https://skillora-backend-ipwx.onrender.com/api/courses/user/${userId}`)
       .then((res) => res.json())
       .then((data) => setCourses(data))
       .finally(() => setLoading(false));
@@ -127,7 +125,7 @@ const Favorite = ({ userId }) => {
     const fetchFavorites = async () => {
       try {
         const res = await axios.get(
-          `${API_URL}/api/courses/favorites/${userId}`
+          `https://skillora-backend-ipwx.onrender.com/api/courses/favorites/${userId}`
         );
         setCourses(res.data);
       } catch (err) {
@@ -180,7 +178,7 @@ const Comments = ({ userId }) => {
 
     try {
       const res = await axios.delete(
-        `${API_URL}/api/courses/${courseId}/comment/${commentId}`
+        `https://skillora-backend-ipwx.onrender.com/api/courses/${courseId}/comment/${commentId}`
       );
 
       // Update local state after deletion
@@ -211,7 +209,7 @@ const Comments = ({ userId }) => {
     const fetchComments = async () => {
       try {
         const res = await axios.get(
-          `${API_URL}/api/courses/user/${userId}/comments`
+          `https://skillora-backend-ipwx.onrender.com/api/courses/user/${userId}/comments`
         );
         setCourses(res.data);
       } catch (err) {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 
 const CourseComments = ({ userId }) => {
   const [courses, setCourses] = useState([]);
@@ -10,7 +10,7 @@ const CourseComments = ({ userId }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await axios.get(`${API_URL}/api/courses/user/${userId}/comments`);
+        const res = await axios.get(`https://skillora-backend-ipwx.onrender.com/api/courses/user/${userId}/comments`);
         setCourses(res.data);
       } catch (err) {
         console.error("Failed to fetch comments:", err.response?.data || err.message);

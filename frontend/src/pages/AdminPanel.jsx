@@ -13,7 +13,7 @@ const AdminPanel = () => {
 
     if (user?.publicMetadata?.role === "admin") {
       axios
-        .get("http://localhost:5000/api/courses")
+        .get("https://skillora-backend-ipwx.onrender.com/api/courses")
         .then((res) => setCourses(res.data))
         .finally(() => setLoading(false));
     } else {
@@ -40,7 +40,7 @@ const AdminPanel = () => {
   }
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/courses/${id}`);
+    await axios.delete(`https://skillora-backend-ipwx.onrender.com/api/courses/${id}`);
     setLoading(true);
   };
 

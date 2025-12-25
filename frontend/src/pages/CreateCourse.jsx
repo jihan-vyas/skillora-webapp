@@ -75,7 +75,7 @@ const CreateCourse = () => {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:5000/api/courses", newCourse);
+      await axios.post("https://skillora-backend-ipwx.onrender.com/api/courses", newCourse);
       alert("Course Created Successfully!");
       navigate("/");
     } catch (err) {

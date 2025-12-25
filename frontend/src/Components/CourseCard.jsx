@@ -13,7 +13,7 @@ export default function CourseCard({
   profile = false,
 }) {
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/courses/${id}`);
+    await axios.delete(`https://skillora-backend-ipwx.onrender.com/api/courses/${id}`);
   };
 
   return (

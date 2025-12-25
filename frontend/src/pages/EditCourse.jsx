@@ -3,7 +3,6 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 const EditCourse = () => {
   const { user, isSignedIn } = useUser();
@@ -29,7 +28,7 @@ const EditCourse = () => {
 
     const fetchCourse = async () => {
       try {
-        const res = await fetch(`${API_URL}/api/courses`);
+        const res = await fetch(`https://skillora-backend-ipwx.onrender.com/api/courses`);
         const data = await res.json();
 
         const selectedCourse = data.find((c) => c._id === id);
@@ -97,7 +96,7 @@ const EditCourse = () => {
     try {
       setLoading(true);
       const res = await axios.put(
-        `${API_URL}/api/courses/${id}`,
+        `https://skillora-backend-ipwx.onrender.com/api/courses/${id}`,
         updatedCourse
       );
       alert("Course Updated Successfully!");

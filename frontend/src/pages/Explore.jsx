@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import CourseCard from "../Components/CourseCard";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL 
 
 const Explore = () => {
   const [courses, setCourses] = useState([]);
@@ -15,7 +15,7 @@ const Explore = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await axios.get(`${API_URL}/api/courses`);
+        const res = await axios.get(`https://skillora-backend-ipwx.onrender.com/api/courses`);
         const data = res.data;
 
         if (Array.isArray(data)) {
