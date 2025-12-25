@@ -1,4 +1,4 @@
-import { Link, redirect, useParams } from "react-router-dom";
+import { Link, redirect, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { SignedIn, useUser } from "@clerk/clerk-react";
 import axios from "axios";
@@ -10,6 +10,7 @@ const CourseDetails = () => {
   const [relatedCourses, setRelatedCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [commentText, setCommentText] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -32,7 +33,7 @@ const CourseDetails = () => {
   }, [id, commentText]);
 
   const handleAddComment = async () => {
-    if (!commentText.trim()) return;
+    if (!commentText.trim()) navigate('/signup');
     await axios.post(
       `https://skillora-backend-ipwx.onrender.com/api/courses/${course._id}/comment`,
       {
@@ -61,7 +62,7 @@ const CourseDetails = () => {
   };
 
   const handleLike = async () => {
-    if (!isSignedIn) redirect('signup');
+    if (!isSignedIn) navigate('/signup');
     const res = await axios.post(
       `https://skillora-backend-ipwx.onrender.com/api/courses/${course._id}/like`,
       { userId: user.id }
