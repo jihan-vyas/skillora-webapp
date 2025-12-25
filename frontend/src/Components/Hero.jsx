@@ -31,7 +31,7 @@ export default function Hero() {
         {/* Right Image / Illustration */}
         <div className="flex-1 flex justify-center w-full">
           <img
-            src="demo.jpg"
+            src="img.png"
             alt="Hero Illustration"
             /* Using max-w-full and aspect-square or specific heights to keep it from breaking layout */
             className="w-full max-w-[320px] sm:max-w-[400px] md:max-w-[450px] h-[250px] sm:h-[300px] md:h-[400px] object-cover drop-shadow-xl rounded-xl transition-all duration-300"

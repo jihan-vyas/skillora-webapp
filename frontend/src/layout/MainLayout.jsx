@@ -29,9 +29,9 @@ const MainLayout = () => {
 
         {/* Desktop Navigation (Hidden on Mobile) */}
         <nav className="hidden md:flex items-center gap-8 font-semibold text-lg">
-          <Link to={"/"} className="hover:text-secondary transition">Home</Link>
-          <Link to={"/explore"} className="hover:text-secondary transition">Explore</Link>
-          <Link to={"/about-contact"} className="hover:text-secondary transition">About & Contact</Link>
+          <Link to={"/"} className="hover:text-gray-600 transition">Home</Link>
+          <Link to={"/explore"} className="hover:text-gray-600 transition">Explore</Link>
+          <Link to={"/about-contact"} className="hover:text-gray-600 transition">About & Contact</Link>
           <SignedIn>
             <Link to={"/dashboard"} className="hover:text-secondary transition">My Profile</Link>
           </SignedIn>

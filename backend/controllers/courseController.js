@@ -10,7 +10,7 @@ export const getAllCourses = async (req, res) => {
     console.error(error);
     res.status(500).json({ message: "Failed to fetch courses." });
   }
-};
+}; 
 
 // Create a new course
 export const createCourse = async (req, res) => {
