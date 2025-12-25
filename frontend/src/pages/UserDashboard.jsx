@@ -1,6 +1,6 @@
 import { useUser } from "@clerk/clerk-react";
 import React, { useEffect, useState } from "react";
-import CourseCard from "../components/CourseCard";
+import CourseCard from "../Components/CourseCard";
 import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
