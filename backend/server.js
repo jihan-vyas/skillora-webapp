@@ -22,6 +22,7 @@
 //   })
 //   .catch((err) => console.log(err));
 
+
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -32,33 +33,21 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://your-frontend-name.vercel.app"
-    ],
-    credentials: true
-  })
-);
-
+app.use(cors());
 app.use(express.json());
 
-// Routes
+// ROOT ROUTE (FIXES Cannot GET /)
+app.get("/", (req, res) => {
+  res.send("Server is running 🚀");
+});
+
+// API ROUTES
 app.use("/api/courses", courseRoutes);
 
-// Port (VERY IMPORTANT)
-const PORT = process.env.PORT || 5000;
+// MONGODB CONNECTION (NO app.listen)
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log(err));
 
-// Database + Server start
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("MongoDB Connected");
-    app.listen(PORT, () =>
-      console.log(`Server running on port ${PORT}`)
-    );
-  })
-  .catch((err) => console.log(err));
-
+// EXPORT APP FOR VERCEL
+export default app;
