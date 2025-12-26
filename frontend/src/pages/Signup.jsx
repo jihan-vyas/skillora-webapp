@@ -7,7 +7,7 @@ const Signup = () => {
        2. Added py-10 to ensure a gap at the top and bottom so it never touches the edge.
     */
     <div className="flex items-center justify-center min-h-screen bg-primary w-full px-4 py-10">
-      
+
       <div className="w-full max-w-[480px] flex justify-center">
         <SignUp
           routing="path"
